@@ -1,0 +1,105 @@
+$machinegreen: #9dc3c2;
+$orange: #d4877a;
+$darkgray: #5a5b60;
+$menugray: #e4e4e4;
+$black: #000;
+$lightgray: #a9b0be;
+$white: #fff;
+
+// Bootstrap Variables
+$icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+
+// Import Bootstrap
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrapper {
+  background-image: url('../images/majestic-thai-pic.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.navlist {
+  li {
+    color: $black;
+    float: left;
+    font-size: 30px;
+    list-style-type: none;
+    padding-left: 70px;
+    text-decoration: none;
+
+    &:hover {
+      color: $orange;
+    }
+  }
+}
+
+header {
+  color: $white;
+  font-family: cursive;
+  font-size: 80px;
+  height: 300px;
+  padding-top: 60px;
+  text-align: center;
+}
+
+.menu {
+  h4 {
+    font-style: Helvetica, sans-serif;
+    font-weight: bold;
+  }
+
+  li {
+    font-style: Helvetica, sans-serif;
+    list-style-type: none;
+  }
+}
+
+.add-button {
+  background-color: $machinegreen;
+  color: $white;
+
+  &:hover {
+    background-color: $orange;
+    color: $white;
+  }
+}
+
+.checkout-button {
+  background-color: $orange;
+
+  &:hover {
+    background-color: $machinegreen;
+  }
+}
+
+.yelp-button {
+  height: 50px;
+  width: 120px;
+}
+
+.contact-us {
+  float: left;
+}
+
+.locations {
+  display: inline-block;
+  float: left;
+  margin-right: 40%;
+
+  li {
+    float: left;
+    list-style-type: none;
+    padding-left: 50px;
+  }
+}
