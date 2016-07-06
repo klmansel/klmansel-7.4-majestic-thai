@@ -63,21 +63,21 @@ var Menu = React.createClass({
       foodType: 'Appetizer'
     }).map(function(model){
       return (
-      <li key={model.cid}>{model.get('title')} {model.displayPrice()} <button onClick={self.props.addToCart} className="btn btn-xs add-button">Add</button></li>
+      <li key={model.cid}>{model.get('title')} {model.displayPrice()} <button onClick={function(){self.props.addToCart(model)}} className="btn btn-xs add-button">Add</button></li>
       );
   });
     var entrees=this.props.menuItems.where({
       foodType: 'Entree'
     }).map(function(model){
       return (
-      <li key={model.cid}>{model.get('title')} {model.displayPrice()} <button onClick={self.props.addToCart} className="btn btn-xs add-button">Add</button></li>
+      <li key={model.cid}>{model.get('title')} {model.displayPrice()} <button onClick={function(){self.props.addToCart(model)}} className="btn btn-xs add-button">Add</button></li>
       );
     });
     var desserts=this.props.menuItems.where({
       foodType: 'Desserts'
     }).map(function(model){
       return (
-      <li key={model.cid}>{model.get('title')} {model.displayPrice()} <button onClick={self.props.addToCart} className="btn btn-xs add-button">Add</button></li>
+      <li key={model.cid}>{model.get('title')} {model.displayPrice()} <button onClick={function(){self.props.addToCart(model)}} className="btn btn-xs add-button">Add</button></li>
       );
     });
     return (
@@ -104,17 +104,19 @@ var Menu = React.createClass({
 });
 
 var Order = React.createClass({
-  render: function(model){
+  render: function(){
         var self = this;
         var collection = this.props.orderItems;
         var orderItemList = collection.map(function(model){
+          console.log(model.displayPrice());
+
           return (
-            <div>
-              <li key={model._id}>{model.get('title')} {model.displayPrice()}
+            <div key={model.cid}>
+              <li >{model.get('title')} {model.displayPrice()}
                 <button onClick={function(){self.props.removeFromCart(model)}}>Remove From Cart</button>
               </li>
             </div>
-      );
+          );
         });
 
         return (
@@ -159,6 +161,7 @@ var AppContainer = React.createClass({
     });
   },
   addToCart: function(model){
+    console.warn(model);
     this.state.orderItems.add(model);
     this.forceUpdate();
   },
@@ -177,7 +180,7 @@ var AppContainer = React.createClass({
 
           <Order removeFromCart={this.removeFromCart} orderItems={this.state.orderItems}/>
         </div>
-        <button className="btn btn-success checkout-button" name="checkout">Checkout</button>
+        <button  className="btn btn-success checkout-button" name="checkout">Checkout</button>
       </div>
     );
   }

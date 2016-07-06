@@ -2,7 +2,7 @@ var Backbone = require('backbone');
 var MenuItem = require('./menu').MenuItem;
 
 var OrderItem = MenuItem.extend({
-     idAttribute: '_id',
+
 
 });
 
